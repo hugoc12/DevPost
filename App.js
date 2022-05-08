@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { Routes } from './src/pages/routes';
+import ContextProvider from './src/context';
 
 export default function App(){
   return(
-    <View>
-      <Text>Hellow World!!</Text>
-    </View>
+    <ContextProvider>
+      <Routes/>
+    </ContextProvider>
   )
 }

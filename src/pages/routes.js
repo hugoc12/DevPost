@@ -11,7 +11,7 @@ import Dashboard from './dashboard';
 export function Routes(){
     return(
         <NavigationContainer>
-            <StackNavigator.Navigator initialRouteName='Login'>
+            <StackNavigator.Navigator initialRouteName='Login' screenOptions={{headerShown:false}}>
                 <StackNavigator.Screen name='Login' component={Login}/>
                 <StackNavigator.Screen name='Cadastro' component={Cadastro}/>
                 <StackNavigator.Screen name='Dashboard' component={Dashboard}/>

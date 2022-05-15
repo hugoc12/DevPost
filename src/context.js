@@ -5,8 +5,8 @@ export const ContextUser = createContext();
 
 export default function ContextProvider({children}){
     const [data, setData] = useState({
-        nome:'Hugo',
-        email:'hugo_c12@outloo.com'
+        nome:'Exemplo',
+        email:'exemplo@hotmail.com'
     })
 
     return(

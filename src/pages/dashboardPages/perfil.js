@@ -6,23 +6,22 @@ import ContentModal from '../../components/modalUpdatePerfil';
 
 import { ContextUser } from '../../context';
 
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { auth } from '../../firebase/initializeFirebase';
 import { signOut } from 'firebase/auth';
 
 import { launchImageLibrary } from 'react-native-image-picker';
 
-export default function Perfil(){
+export default function Perfil(props){
     useEffect(()=>{
-        route.params?.setLoading(false);
-
         BackHandler.addEventListener('hardwareBackPress', ()=>{
             return true;
         })
+
+        dataContext.setLoading(false);
     }, [])
 
-    const route = useRoute();
     const dataContext = useContext(ContextUser);
     const navigation = useNavigation();
 
@@ -32,12 +31,12 @@ export default function Perfil(){
 
     async function logout(){
         try{
-            const response = await signOut(auth);
+            await signOut(auth);
             await AsyncStorage.removeItem('@keyUser', ()=>{
                 navigation.navigate('Login');
             })
         }catch(err){
-
+            console.log(err);
         }
     }
 

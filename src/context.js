@@ -9,8 +9,10 @@ export default function ContextProvider({children}){
         email:'exemplo@hotmail.com'
     })
 
+    const [loading, setLoading] = useState(false);
+
     return(
-        <ContextUser.Provider value={{data, setData}}>
+        <ContextUser.Provider value={{data, setData, loading, setLoading}}>
             {children}
         </ContextUser.Provider>
     )
